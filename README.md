@@ -46,7 +46,11 @@ redirect flow:
 
 https://imperfectandcompany.sharepoint.com/:v:/s/ImperfectandCompany2/ETVRdeR7YJlNpNgVznK0YLYBtR6wOd-Lu7sVEDRud5AYvA
 
-Currently living monetization model:
+
+july update (pricing not fixed yet, help from josh and clay :) ):
+![image](https://github.com/imperfectandcompany/Imperfect-Gamers-Site-Store/assets/3193289/bc6bce73-e347-4d7f-9efb-68943472d69b)
+
+Currently living monetization model (june):
 
 ![image](https://github.com/imperfectandcompany/Imperfect-Gamers-Site-Store/assets/3193289/188f0a40-859f-472c-88d7-a968bf54bd18)
 
