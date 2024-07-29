@@ -39,9 +39,9 @@ const WelcomeScreen: React.FC<
 							title="First Timer"
 							subtitle="New here"
 							description="Unranked"
-							animationUrl="https://lottie.host/5c1a10ad-b448-4a7c-b7c8-84a65f085881/lJ60raf46T.json"
-							hoverAnimationUrl="https://lottie.host/f4cdfc7c-f9a3-40ae-ab75-f7b3dd57f678/N0XLmIQErG.json"
-							styleType="primary"
+							animationUrl="https://cdn.imperfectandcompany.com/assets/tenant/imperfect_gamers/site/store/modal/welcome_screen/animations/imperfect_store_newb_hover_ig.json"
+							hoverAnimationUrl="https://cdn.imperfectandcompany.com/assets/tenant/imperfect_gamers/site/store/modal/welcome_screen/animations/imperfect_store_newb_initial_ig.json"
+							styleType='primary'
 						/>
 					</div>
 					<div>
@@ -50,8 +50,8 @@ const WelcomeScreen: React.FC<
 							title="Old Timer"
 							subtitle="Been here"
 							description="Veteran"
-							hoverAnimationUrl="https://lottie.host/879e211e-1f3a-4015-8815-79d5cd1af0d2/RaWWjJVbB4.json"
-							animationUrl="https://lottie.host/fd083183-9af6-4295-a9f1-acdd2d321ee7/lJD5sQ893r.json"
+							animationUrl="https://cdn.imperfectandcompany.com/assets/tenant/imperfect_gamers/site/store/modal/welcome_screen/animations/imperfect_store_vet_hover_ig.json"
+							hoverAnimationUrl="https://cdn.imperfectandcompany.com/assets/tenant/imperfect_gamers/site/store/modal/welcome_screen/animations/imperfect_store_vet_initial_ig.json"
 						/>
 					</div>
 				</div>
