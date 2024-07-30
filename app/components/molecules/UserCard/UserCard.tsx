@@ -80,14 +80,20 @@ const UserCard: React.FC<UserCardProps> = ({
 									className={`font-semibold ${subtitleColor} absolute inset-x-0 top-0 bg-gradient-to-b from-black to-transparent p-4 text-right  md:text-lg lg:text-xl`}
 								></p>
 							</div>
-							<div className="absolute inset-x-0 h bottom-0 bg-gradient-to-t  from-black to-transparent p-4">
-								<h2 className="font-bold text-white transition duration-300 ease-in-out drop-shadow-2xl [text-shadow:_0_3px_0_rgb(0_0_0_/70%)] md:text-xl lg:text-4xl">
-									<span className={isHovered ? 'transition opacity-0' :'transition opacity-100'}>
+							<div className="h absolute inset-x-0 bottom-0 bg-gradient-to-t  from-black to-transparent p-4">
+								<h2 className="font-bold text-white drop-shadow-2xl transition duration-300 ease-in-out [text-shadow:_0_3px_0_rgb(0_0_0_/70%)] md:text-xl lg:text-4xl">
+									<span
+										className={
+											isHovered
+												? 'opacity-0 transition'
+												: 'opacity-100 transition'
+										}
+									>
 										{formattedTitle}
 									</span>
 								</h2>
 								<p
-									className={`font-semibold ${subtitleColor} ${isHovered ? 'transition opacity-0' :'transition opacity-100'} bottom-0 md:text-lg lg:text-xl`}
+									className={`font-semibold ${subtitleColor} ${isHovered ? 'opacity-0 transition' : 'opacity-100 transition'} bottom-0 md:text-lg lg:text-xl`}
 								>
 									<span className="">{subtitle}</span>
 								</p>
@@ -101,13 +107,19 @@ const UserCard: React.FC<UserCardProps> = ({
 								></p>
 							</div>
 							<div className="absolute inset-x-0 bottom-0 bg-gradient-to-t  from-black to-transparent p-4">
-							<h2 className="font-bold text-white transition duration-300 ease-in-out drop-shadow-2xl [text-shadow:_0_3px_0_rgb(0_0_0_/70%)] md:text-xl lg:text-4xl">
-									<span className={isHovered ? 'transition opacity-0' :'transition opacity-100'}>
+								<h2 className="font-bold text-white drop-shadow-2xl transition duration-300 ease-in-out [text-shadow:_0_3px_0_rgb(0_0_0_/70%)] md:text-xl lg:text-4xl">
+									<span
+										className={
+											isHovered
+												? 'opacity-0 transition'
+												: 'opacity-100 transition'
+										}
+									>
 										{formattedTitle}
 									</span>
 								</h2>
 								<p
-									className={`font-semibold ${subtitleColor} ${isHovered ? 'transition opacity-0' :'transition opacity-100'} bottom-0 md:text-lg lg:text-xl`}
+									className={`font-semibold ${subtitleColor} ${isHovered ? 'opacity-0 transition' : 'opacity-100 transition'} bottom-0 md:text-lg lg:text-xl`}
 								>
 									<span className="">{subtitle}</span>
 								</p>

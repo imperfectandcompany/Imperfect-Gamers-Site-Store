@@ -672,7 +672,7 @@ const CookieConsent: FunctionComponent = () => {
 						Essential (required for login):
 					</label>
 					<div className="toggle-switch">
-						<input type="checkbox" checked={true} disabled readOnly/>
+						<input type="checkbox" checked={true} disabled readOnly />
 						<span className="slider"></span>
 					</div>
 				</div>

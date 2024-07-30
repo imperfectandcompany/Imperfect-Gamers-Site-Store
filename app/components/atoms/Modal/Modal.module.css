@@ -32,28 +32,28 @@
 }
 
 @keyframes fadeOut {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-    visibility: hidden;
-  }
+	from {
+		opacity: 1;
+	}
+	to {
+		opacity: 0;
+		visibility: hidden;
+	}
 }
 
 .fade__out {
 	animation: fadeOut 0.5s ease-out forwards;
-  }
+}
 
-  @keyframes fadeOut {
+@keyframes fadeOut {
 	from {
-	  opacity: 1;
+		opacity: 1;
 	}
 	to {
-	  opacity: 0;
-	  visibility: hidden;
+		opacity: 0;
+		visibility: hidden;
 	}
-  }
+}
 
 .modal__class {
 	position: absolute; /* or absolute, depending on other layout factors */

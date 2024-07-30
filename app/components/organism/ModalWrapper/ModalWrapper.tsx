@@ -121,11 +121,11 @@ const ModalWrapper: React.FC<ModalWrapperProps> = ({
 	}, [])
 
 	const [isFadingOut, setIsFadingOut] = useState(false)
-	const [isClosing, setIsClosing] = useState(false);
+	const [isClosing, setIsClosing] = useState(false)
 
 	const closeModal = () => {
 		if (!handlePopupWindow() && shouldClose()) {
-			setIsClosing(true); // Start the closing animation
+			setIsClosing(true) // Start the closing animation
 			const consentModalOpen = localStorage.getItem('consentModalOpen')
 			if (consentModalOpen !== 'true') {
 				// Step 2: Start the fade-out animation
@@ -134,7 +134,7 @@ const ModalWrapper: React.FC<ModalWrapperProps> = ({
 				setTimeout(() => {
 					setIsOpen(false)
 					setIsFadingOut(false) // Reset the fade-out state for the next open-close cycle
-					setIsClosing(false); // Reset the state for the next time the modal opens
+					setIsClosing(false) // Reset the state for the next time the modal opens
 				}, 500) // This duration should match our CSS animation duration
 			}
 		} else {
@@ -190,19 +190,19 @@ const ModalWrapper: React.FC<ModalWrapperProps> = ({
 			</Modal>
 			{/** Escape modal button **/}
 			{allowClose && isOpen ? (
-  <div
-  className={`${modal.close__button} ${isClosing ? modal.fade__out : ''}`}
-  role="button"
-  tabIndex={0}
-  onClick={closeModal}
-  onKeyDown={e => {
-	if (e.key === 'Enter' || e.key === ' ') {
-	  closeModal();
-	}
-  }}
->
-  &times;
-</div>
+				<div
+					className={`${modal.close__button} ${isClosing ? modal.fade__out : ''}`}
+					role="button"
+					tabIndex={0}
+					onClick={closeModal}
+					onKeyDown={e => {
+						if (e.key === 'Enter' || e.key === ' ') {
+							closeModal()
+						}
+					}}
+				>
+					&times;
+				</div>
 			) : null}
 		</>
 	)

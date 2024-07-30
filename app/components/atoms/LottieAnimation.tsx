@@ -1,11 +1,16 @@
-import { Player, PlayerEvent, PlayerState } from '@lottiefiles/react-lottie-player';
-import React, { useState } from 'react';
+import {
+	Player,
+	PlayerEvent,
+	PlayerState,
+} from '@lottiefiles/react-lottie-player'
+import type React from 'react'
+import { useState } from 'react'
 
 interface LottieAnimationProps {
-	animationUrl: string;
-	style?: React.CSSProperties;
-	loop: boolean;
-	styleType?: 'primary' | 'secondary';
+	animationUrl: string
+	style?: React.CSSProperties
+	loop: boolean
+	styleType?: 'primary' | 'secondary'
 }
 
 const LottieAnimation: React.FC<LottieAnimationProps> = ({
@@ -14,27 +19,33 @@ const LottieAnimation: React.FC<LottieAnimationProps> = ({
 	loop,
 	styleType = 'secondary',
 }) => {
-	const [isLoading, setIsLoading] = useState(true);
+	const [isLoading, setIsLoading] = useState(true)
 
 	const handleEvent = (event: PlayerEvent) => {
 		if (event === PlayerEvent.Load || event === PlayerEvent.Error) {
-			setIsLoading(false);
+			setIsLoading(false)
 		}
-	};
+	}
 
 	const handleState = (state: PlayerState) => {
 		if (state === PlayerState.Loading) {
-			setIsLoading(true);
+			setIsLoading(true)
 		} else if (state === PlayerState.Playing || state === PlayerState.Stopped) {
-			setIsLoading(false);
+			setIsLoading(false)
 		}
-	};
+	}
 
 	return (
 		<div style={{ position: 'relative', ...style }}>
-				<div className={`transition absolute inset-0 flex items-center justify-center ${styleType === 'primary' ? 'bg-blue-600' : 'bg-red-600'}`}>
-				<div className={`animate ${isLoading? 'animate-bounce transition' : 'animate-none'}`}>
-					<div className={`h-24 w-24 lg:h-40 lg:w-40 rounded-full ${styleType === 'primary' ? 'bg-blue-800' : 'bg-red-800'}`}></div>
+			<div
+				className={`absolute inset-0 flex items-center justify-center transition ${styleType === 'primary' ? 'bg-blue-600' : 'bg-red-600'}`}
+			>
+				<div
+					className={`animate ${isLoading ? 'animate-bounce transition' : 'animate-none'}`}
+				>
+					<div
+						className={`size-24 rounded-full lg:size-40 ${styleType === 'primary' ? 'bg-blue-800' : 'bg-red-800'}`}
+					></div>
 				</div>
 			</div>
 
@@ -51,7 +62,7 @@ const LottieAnimation: React.FC<LottieAnimationProps> = ({
 				onStateChange={handleState}
 			/>
 		</div>
-	);
-};
+	)
+}
 
-export default LottieAnimation;
+export default LottieAnimation

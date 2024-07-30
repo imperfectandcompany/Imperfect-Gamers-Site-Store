@@ -56,7 +56,8 @@ const Button: React.FC<ButtonProps> = ({
 		}
 	}, [shake])
 
-	const baseStyles = 'button text-white py-2 px-5 tracking-wide outline-none focus:outline-none';
+	const baseStyles =
+		'button text-white py-2 px-5 tracking-wide outline-none focus:outline-none'
 	const variantClasses = buttonVariants[variant] || buttonVariants.primary
 	const disabledClasses = disabled
 		? 'opacity-50 cursor-not-allowed shadow-none'

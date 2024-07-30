@@ -41,7 +41,7 @@ const WelcomeScreen: React.FC<
 							description="Unranked"
 							animationUrl="https://cdn.imperfectandcompany.com/assets/tenant/imperfect_gamers/site/store/modal/welcome_screen/animations/imperfect_store_newb_hover_ig.json"
 							hoverAnimationUrl="https://cdn.imperfectandcompany.com/assets/tenant/imperfect_gamers/site/store/modal/welcome_screen/animations/imperfect_store_newb_initial_ig.json"
-							styleType='primary'
+							styleType="primary"
 						/>
 					</div>
 					<div>
