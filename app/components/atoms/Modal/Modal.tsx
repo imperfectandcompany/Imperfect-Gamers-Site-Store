@@ -112,7 +112,7 @@ const Modal: React.FC<ModalProps> = ({
 
 	const modalClass = isResponsive
 		? `mx-4 w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl xl:rounded-lg border border-stone-800 bg-black p-5 shadow-lg md:shadow-xl md:mx-0 ${isShaking ? modal.shake__animation : ''}`
-		: `mx-4 w-full max-w-md rounded-lg border border-stone-800 bg-black p-5 shadow-xl md:mx-0 ${isShaking ? modal.shake__animation : modal.modal__class}`
+		: `mx-4 w-full max-w-sm mx-0 items-center justify-center rounded-lg border border-stone-800 bg-black p-5 shadow-xl md:mx-0 ${isShaking ? modal.shake__animation : modal.modal__class}`
 
 	function adjustModalHeight(): void {
 		const cookieBanner = document.getElementById('cookieBanner')

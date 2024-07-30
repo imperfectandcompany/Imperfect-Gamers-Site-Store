@@ -5,12 +5,11 @@ import {
 	type LoaderFunction,
 } from '@remix-run/node'
 import { useLoaderData } from '@remix-run/react'
-import { useEffect, useRef } from 'react'
+import { useRef } from 'react'
 import type { ExternalScriptsHandle } from 'remix-utils/external-scripts'
 import { getSession, storeCookie } from '~/auth/storage.server'
 import CookieConsent from '~/components/pending/CookieConsent'
 import { getFlashMessage } from '~/components/pending/flash-session.server'
-import ModalPositionContext from '~/components/pending/ModalPositionContext'
 import {
 	StoreContact,
 	StoreEvents,
@@ -199,88 +198,86 @@ export default function Index() {
 	const { flashError } = useLoaderData<LoaderData>()
 
 	// Define the function to adjust modal position
-	const adjustModalPosition = () => {
-		const cookieBanner = document.querySelector('.cookie-popup') as HTMLElement
-		const modal = document.getElementById('modal') as HTMLElement
-		if (cookieBanner && modal) {
-			if (cookieBanner.offsetHeight > 0 && window.innerWidth <= 768) {
-				// Add some space above the cookie banner, for example, 20px less than the banner's height
-				const adjustment = cookieBanner.offsetHeight - 160 // Reduce 20px or adjust this value as needed
-				modal.style.transform = `translateY(-${adjustment}px)`
-			} else {
-				// Reset the modal position when the banner is not visible
-				modal.style.transform = 'translateY(0)'
-			}
-		} else {
-			modal.style.transform = 'translateY(0)'
-		}
-	}
+	// const adjustModalPosition = () => {
+	// 	const cookieBanner = document.querySelector('.cookie-popup') as HTMLElement
+	// 	const modal = document.getElementById('modal') as HTMLElement
+	// 	if (cookieBanner && modal) {
+	// 		if (cookieBanner.offsetHeight > 0 && window.innerWidth <= 768) {
+	// 			// Add some space above the cookie banner, for example, 20px less than the banner's height
+	// 			const adjustment = 0; // Reduce 20px or adjust this value as needed
+	// 			modal.style.transform = `translateY(-${adjustment}px)`
+	// 		} else {
+	// 			// Reset the modal position when the banner is not visible
+	// 			modal.style.transform = 'translateY(0)'
+	// 		}
+	// 	} else {
+	// 		modal.style.transform = 'translateY(0)'
+	// 	}
+	// }
 
 	const modalRef = useRef(null)
 
-	useEffect(() => {
-		const observer = new MutationObserver(() => {
-			adjustModalPosition()
-		})
+	// useEffect(() => {
+	// 	const observer = new MutationObserver(() => {
+	// 		adjustModalPosition()
+	// 	})
 
-		if (modalRef.current) {
-			observer.observe(modalRef.current, {
-				childList: true,
-				subtree: true,
-				attributes: true,
-				characterData: true,
-			})
-		}
+	// 	if (modalRef.current) {
+	// 		observer.observe(modalRef.current, {
+	// 			childList: true,
+	// 			subtree: true,
+	// 			attributes: true,
+	// 			characterData: true,
+	// 		})
+	// 	}
 
-		return () => {
-			observer.disconnect()
-		}
-	}, [adjustModalPosition])
+	// 	return () => {
+	// 		observer.disconnect()
+	// 	}
+	// }, [adjustModalPosition])
 
-	// Use effect to bind event listeners
-	useEffect(() => {
-		// Adjust position on window resize
-		const handleResize = () => {
-			adjustModalPosition()
-		}
-		window.addEventListener('resize', handleResize)
+	// // Use effect to bind event listeners
+	// useEffect(() => {
+	// 	// Adjust position on window resize
+	// 	const handleResize = () => {
+	// 		adjustModalPosition()
+	// 	}
+	// 	window.addEventListener('resize', handleResize)
 
-		// Cleanup function to remove event listener
-		return () => {
-			window.removeEventListener('resize', handleResize)
-		}
-	}, [])
+	// 	// Cleanup function to remove event listener
+	// 	return () => {
+	// 		window.removeEventListener('resize', handleResize)
+	// 	}
+	// }, [])
 
 	return (
 		<>
 			<StoreNavbar />
-			<ModalPositionContext.Provider value={{ adjustModalPosition }}>
-				{flashError &&
-				(flashError.type === 'steam_authorization_error' ||
-					flashError.type === 'tebex_checkout_cancel') ? (
-					<div className="error-bar w-full">
-						<strong>Error:</strong> {flashError.message} (Status:{' '}
-						{flashError.status})
-					</div>
-				) : null}
-				<div>
-					<CookieConsent />
+			{flashError &&
+			(flashError.type === 'steam_authorization_error' ||
+				flashError.type === 'tebex_checkout_cancel') ? (
+				<div className="error-bar w-full">
+					<strong>Error:</strong> {flashError.message} (Status:{' '}
+					{flashError.status})
 				</div>
-				<div
-					ref={modalRef}
-					className="flex flex-col space-y-24 px-4 text-white sm:px-8 md:mx-72 md:space-y-12 md:px-12"
-				>
-					<StoreHeader />
-					<StoreFeatured />
-					<StoreTiers />
-					<StoreTestimonials />
-					<StoreFAQ />
-					<StoreEvents />
-					<StorePartnership />
-					<StoreContact />
-				</div>
-				<StoreFooter />
-			</ModalPositionContext.Provider>
+			) : null}
+			<div>
+				<CookieConsent />
+			</div>
+			<div
+				ref={modalRef}
+				className="flex flex-col space-y-24 px-4 text-white sm:px-8 md:mx-72 md:space-y-12 md:px-12"
+			>
+				<StoreHeader />
+				<StoreFeatured />
+				<StoreTiers />
+				<StoreTestimonials />
+				<StoreFAQ />
+				<StoreEvents />
+				<StorePartnership />
+				<StoreContact />
+			</div>
+			<StoreFooter />
 		</>
 	)
 }

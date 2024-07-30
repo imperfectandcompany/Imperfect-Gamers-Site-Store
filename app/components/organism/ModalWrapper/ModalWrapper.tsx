@@ -121,9 +121,11 @@ const ModalWrapper: React.FC<ModalWrapperProps> = ({
 	}, [])
 
 	const [isFadingOut, setIsFadingOut] = useState(false)
+	const [isClosing, setIsClosing] = useState(false)
 
 	const closeModal = () => {
 		if (!handlePopupWindow() && shouldClose()) {
+			setIsClosing(true) // Start the closing animation
 			const consentModalOpen = localStorage.getItem('consentModalOpen')
 			if (consentModalOpen !== 'true') {
 				// Step 2: Start the fade-out animation
@@ -132,6 +134,7 @@ const ModalWrapper: React.FC<ModalWrapperProps> = ({
 				setTimeout(() => {
 					setIsOpen(false)
 					setIsFadingOut(false) // Reset the fade-out state for the next open-close cycle
+					setIsClosing(false) // Reset the state for the next time the modal opens
 				}, 500) // This duration should match our CSS animation duration
 			}
 		} else {
@@ -143,7 +146,7 @@ const ModalWrapper: React.FC<ModalWrapperProps> = ({
 		// dialog or visual feedback to inform the user why the modal cannot be closed and
 		// what actions they might need to take to securely close it.
 		//
-		// SEE: https://github.com/imperfectandcompany/imperfect-gamers-site/issuefs/54
+		// SEE: https://github.com/imperfectandcompany/imperfect-gamers-site/issues/54
 	}
 
 	return (
@@ -188,7 +191,7 @@ const ModalWrapper: React.FC<ModalWrapperProps> = ({
 			{/** Escape modal button **/}
 			{allowClose && isOpen ? (
 				<div
-					className={modal.close__button}
+					className={`${modal.close__button} ${isClosing ? modal.fade__out : ''}`}
 					role="button"
 					tabIndex={0}
 					onClick={closeModal}
