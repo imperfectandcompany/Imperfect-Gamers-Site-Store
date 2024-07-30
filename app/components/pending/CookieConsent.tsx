@@ -672,7 +672,7 @@ const CookieConsent: FunctionComponent = () => {
 						Essential (required for login):
 					</label>
 					<div className="toggle-switch">
-						<input type="checkbox" checked={true} disabled />
+						<input type="checkbox" checked={true} disabled readOnly/>
 						<span className="slider"></span>
 					</div>
 				</div>
@@ -696,7 +696,7 @@ const CookieConsent: FunctionComponent = () => {
 							type="checkbox"
 							id="analytics"
 							checked={settings.analytics.enabled}
-							onClick={e => {
+							onChange={e => {
 								e.stopPropagation() // Prevent this click from bubbling up to the container
 								handleAnalyticsToggle(!settings.analytics.enabled)
 							}}

@@ -5,8 +5,23 @@
 	font-size: 1.5rem;
 	color: white;
 	cursor: pointer;
-	z-index: 1050; /* Ensure it's above the modal and other elements */
+	z-index: 2000!important; /* Ensure it's above the modal and other elements */
 }
 .close__button:hover {
 	color: #a50000; /* Darker red on hover */
 }
+
+
+@keyframes fadeOut {
+	from {
+	  opacity: 1;
+	}
+	to {
+	  opacity: 0;
+	  visibility: hidden;
+	}
+  }
+  
+  .fade__out {
+	animation: fadeOut 0.5s ease-out forwards;
+  }

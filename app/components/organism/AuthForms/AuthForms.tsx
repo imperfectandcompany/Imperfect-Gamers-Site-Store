@@ -318,8 +318,8 @@ const AuthForms: React.FC = () => {
 						!isAuthenticated
 							? isInitial
 							: title == PageTitle.SetUsername
-								? false
-								: true
+								? true
+								: false
 					} // Set true only if showing WelcomeScreen
 				>
 					<Button>{isPremium ? 'Manage Pass' : 'Join Now'}</Button>

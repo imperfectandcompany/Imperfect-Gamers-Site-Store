@@ -34,7 +34,7 @@ const LottieAnimation: React.FC<LottieAnimationProps> = ({
 		<div style={{ position: 'relative', ...style }}>
 				<div className={`transition absolute inset-0 flex items-center justify-center ${styleType === 'primary' ? 'bg-blue-600' : 'bg-red-600'}`}>
 				<div className={`animate ${isLoading? 'animate-bounce transition' : 'animate-none'}`}>
-					<div className={`h-40 w-40 rounded-full ${styleType === 'primary' ? 'bg-blue-800' : 'bg-red-800'}`}></div>
+					<div className={`h-24 w-24 lg:h-40 lg:w-40 rounded-full ${styleType === 'primary' ? 'bg-blue-800' : 'bg-red-800'}`}></div>
 				</div>
 			</div>
 
